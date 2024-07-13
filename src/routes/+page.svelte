@@ -102,7 +102,7 @@
 
   <center class="flex flex-col gap-4 text-black bg-white/80 p-4">
     <h1>is {data.channelName} live now?</h1>
-    <p class="text-[30vw] md:text-[20vw] p-0 m-0">
+    <p class="text-[35vw] md:text-[20vw] p-0 m-0">
       {data.isLive ? "YES!" : "NO"}
     </p>
 
@@ -114,6 +114,14 @@
       {Math.floor(nextLiveInSeconds / 1000 / 60) % 60} minutes {Math.floor(
         nextLiveInSeconds / 1000
       ) % 60} seconds
+    {/if}
+    {#if !data.isLive}
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-500 underline">Watch this instead</a
+      >
     {/if}
 
     {#if data.isLive}
