@@ -2,9 +2,9 @@ import type { PageServerLoad } from "./$types";
 
 import { type BaseChannel, Client } from "youtubei";
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ url }) => {
   const youtube = new Client();
-  const CHANNEL_NAME = "9arm.";
+  const CHANNEL_NAME = url.searchParams.get("channel") || "9arm.";
 
   const channel = (await youtube.findOne(CHANNEL_NAME, {
     type: "channel",
