@@ -87,7 +87,9 @@
   })
 </script>
 
-<main class="flex flex-col items-center justify-center h-[100svh]">
+<main
+  class="flex flex-col items-center justify-center h-[100svh] overflow-hidden"
+>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:flex gap-2 fixed -z-10">
     {#each images as imageGroup}
       <div class="grid gap-2 place-content-evenly">
