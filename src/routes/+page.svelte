@@ -34,6 +34,20 @@
     ].sort(() => Math.random() - 0.5)
   )
 
+  const waitingRooms = [
+    "https://www.youtube.com/watch?v=xm3YgoEiEDc",
+    "https://www.youtube.com/watch?v=U_B3FxKBoWI",
+    "https://www.youtube.com/watch?v=HRteu6dOvNI",
+    "https://www.youtube.com/watch?v=M5V_IXMewl4",
+    "https://www.youtube.com/watch?v=0tOXxuLcaog",
+  ]
+
+  function redirectToWaitingRoom() {
+    const waitingRoom =
+      waitingRooms[Math.floor(Math.random() * waitingRooms.length)]
+    window.location.href = waitingRoom
+  }
+
   function groupByThree([a, b, c, ...rest]: string[]): string[][] {
     if (rest.length === 0) return [[a, b, c].filter((x) => x !== undefined)]
     return [[a, b, c]].concat(groupByThree(rest))
@@ -118,11 +132,8 @@
       ) % 60} seconds
     {/if}
     {#if !data.isLive}
-      <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-500 underline">Watch this instead</a
+      <button on:click={redirectToWaitingRoom} class="text-blue-500 underline"
+        >Waiting Room</button
       >
     {/if}
 
@@ -136,5 +147,22 @@
         Watch on YouTube
       </a>
     {/if}
+  </center>
+  <center class="absolute bottom-0 right-0 p-4 text-xs text-blue-500">
+    <a
+      href="https://arc.net/gift/e913792a"
+      class="p-1 black underline cursor-pointer bg-white/80 rounded-lg"
+      target="_blank"
+    >
+      Works best on Arc Browser
+    </a>
+    |
+    <a
+      href="https://github.com/narze/is9armlivenow"
+      class="p-1 black underline cursor-pointer bg-white/80 rounded-lg"
+      target="_blank"
+    >
+      Github
+    </a>
   </center>
 </main>
